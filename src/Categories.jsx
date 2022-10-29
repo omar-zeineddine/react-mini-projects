@@ -11,6 +11,14 @@ const Categories = ({ filterItems }) => {
       >
         breakfast
       </button>
+      <button
+        className="filter-btn"
+        onClick={() => {
+          filterItems("all");
+        }}
+      >
+        All
+      </button>
     </div>
   );
 };
