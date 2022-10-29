@@ -3,9 +3,15 @@ import items from "./data/data";
 import Menu from "./Menu";
 import Categories from "./Categories";
 
+// get unique categories from list
+// const allCategories = items.map((item) => item.category);
+// console.log(allCategories);
+const allCategories = ["all", ...new Set(items.map((item) => item.category))];
+console.log(allCategories);
+
 function App() {
   const [menuItems, setMenuItems] = useState(items);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(allCategories);
 
   // manual method
   const filterItems = (category) => {
@@ -23,7 +29,7 @@ function App() {
           <h2>our menu</h2>
         </div>
         <div className="underline"></div>
-        <Categories filterItems={filterItems} />
+        <Categories categories={categories} filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
     </main>
