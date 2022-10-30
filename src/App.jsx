@@ -10,7 +10,6 @@ function App() {
   const fetchJobs = async () => {
     const response = await fetch(url);
     const newJobs = await response.json();
-    // console.log(newJobs);
     setJobs(newJobs);
     setLoading(false);
   };
@@ -37,13 +36,28 @@ function App() {
       </div>
       <div className="underline"></div>
       <div className="jobs-center">
+        <div className="btn-container">
+          {jobs.map((job, index) => {
+            return (
+              <button
+                key={job.id}
+                className={`job-btn ${index === value && `active-btn`}`}
+                onClick={() => {
+                  setValue(index);
+                }}
+              >
+                {job.company}
+              </button>
+            );
+          })}
+        </div>
         <article className="job-info">
           <h3>{title}</h3>
           <h4>{company}</h4>
           <p className="job-date">{dates}</p>
           {duties.map((duty, index) => {
             return (
-              <div className="job-desc">
+              <div className="job-desc" key={index}>
                 <FaAngleDoubleRight className="job-icon" />
                 <p>{duty}</p>
               </div>
