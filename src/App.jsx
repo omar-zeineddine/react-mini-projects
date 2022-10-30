@@ -22,12 +22,37 @@ function App() {
   if (loading) {
     return (
       <section className="section loading">
-        <h1>Loading...</h1>
+        <h5>Loading...</h5>
       </section>
     );
   }
 
-  return <h1>jobs</h1>;
+  // destructure after loading
+  const { company, dates, duties, title } = jobs[value];
+
+  return (
+    <section className="section">
+      <div className="title">
+        <h2>experience</h2>
+      </div>
+      <div className="underline"></div>
+      <div className="jobs-center">
+        <article className="job-info">
+          <h3>{title}</h3>
+          <h4>{company}</h4>
+          <p className="job-date">{dates}</p>
+          {duties.map((duty, index) => {
+            return (
+              <div className="job-desc">
+                <FaAngleDoubleRight className="job-icon" />
+                <p>{duty}</p>
+              </div>
+            );
+          })}
+        </article>
+      </div>
+    </section>
+  );
 }
 
 export default App;
