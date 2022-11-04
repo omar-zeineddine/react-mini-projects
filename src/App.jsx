@@ -41,10 +41,20 @@ function App() {
           );
         })}
       </div>
-      <button className="prev">
+      <button
+        className="prev"
+        onClick={() => {
+          setIndex(index - 1);
+        }}
+      >
         <FiChevronLeft />
       </button>
-      <button className="next">
+      <button
+        className="next"
+        onClick={() => {
+          setIndex(index + 1);
+        }}
+      >
         <FiChevronRight />
       </button>
     </section>
