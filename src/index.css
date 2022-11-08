@@ -1,70 +1,80 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: rgb(36, 40, 46);
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  padding: 2.5rem 0;
+  color: white;
+  font-size: 5rem;
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 47%;
+  background: rgb(59, 62, 67);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  display: flex;
+}
+
+.card img {
+  width: 15rem;
+  height: 100%;
+}
+
+.loading {
+  background-color: rgb(36, 40, 46);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading h3 {
+  color: white;
+  font-size: 7.5rem;
+}
+
+.text-container {
+  padding: 1rem;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.text-container h3 {
+  font-size: 2rem;
+}
+
+.status {
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: grey;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  margin: 2rem 0;
+  margin-right: 1rem;
 }
