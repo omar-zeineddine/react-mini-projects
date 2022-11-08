@@ -1,5 +1,6 @@
 // import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
+import Character from "./Character";
 
 const Characters = () => {
   //   const [characters, setCharacters] = useState([]);
@@ -26,6 +27,7 @@ const Characters = () => {
   // data, and status of request
   const { data, status } = useQuery("characters", fetchCharacters);
 
+  console.log(status);
   if (status === "loading") {
     return <h2>Loading...</h2>;
   }
@@ -35,9 +37,9 @@ const Characters = () => {
   }
 
   return (
-    <div>
-      {characters.map((character) => {
-        return <div>{character.name}</div>;
+    <div className="characters">
+      {data.results.map((character) => {
+        return <Character character={character} />;
       })}
     </div>
   );
