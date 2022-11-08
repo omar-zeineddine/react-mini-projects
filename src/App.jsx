@@ -2,7 +2,7 @@ import Characters from "./components/Characters";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Characters />
     </div>
   );
