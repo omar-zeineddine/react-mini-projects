@@ -31,7 +31,9 @@ const Characters = () => {
 
   // data, and status of request
   // recommendation to pass page number through useQuery hook
-  const { data, status } = useQuery(["characters", page], fetchCharacters);
+  const { data, status } = useQuery(["characters", page], fetchCharacters, {
+    keepPreviousData: true,
+  });
 
   console.log("data:", data);
 
@@ -57,7 +59,12 @@ const Characters = () => {
         >
           Previous
         </button>
-        <button>Next</button>
+        <button
+          disabled={!data.info.next}
+          onClick={() => setPage((old) => old + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
