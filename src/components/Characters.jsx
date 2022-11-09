@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import Character from "./Character";
 
@@ -19,15 +19,22 @@ const Characters = () => {
   // refactor - use react query
   // useQuery requires a unique query key for caching purposes
 
-  const fetchCharacters = async () => {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
+  const [page, setPage] = useState(1);
+
+  const fetchCharacters = async ({ queryKey }) => {
+    const response = await fetch(
+      // dynamically add page
+      `https://rickandmortyapi.com/api/character?=${queryKey[1]}`
+    );
     return response.json();
   };
 
   // data, and status of request
-  const { data, status } = useQuery("characters", fetchCharacters);
+  // recommendation to pass page number through useQuery hook
+  const { data, status } = useQuery(["characters", page], fetchCharacters);
 
-  console.log(status);
+  console.log("data:", data);
+
   if (status === "loading") {
     return <h2>Loading...</h2>;
   }
@@ -39,7 +46,7 @@ const Characters = () => {
   return (
     <div className="characters">
       {data.results.map((character) => {
-        return <Character character={character} />;
+        return <Character key={character.id} character={character} />;
       })}
     </div>
   );
