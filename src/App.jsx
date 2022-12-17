@@ -38,19 +38,17 @@ function App() {
         </form>
       </section>
       <section className="colors">
-        <div>
-          {list.map((color, idx) => {
-            console.log(color);
-            return (
-              <SingleColor
-                key={idx}
-                {...color}
-                index={idx}
-                hexColor={color?.hex}
-              />
-            );
-          })}
-        </div>
+        {list.map((color, idx) => {
+          console.log(color);
+          return (
+            <SingleColor
+              key={idx}
+              {...color}
+              index={idx}
+              hexColor={color?.hex}
+            />
+          );
+        })}
       </section>
     </>
   );
