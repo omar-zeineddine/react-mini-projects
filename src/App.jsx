@@ -1,7 +1,10 @@
+import SingleColor from "./SingleColor";
+import Values from "values.js";
+
 function App() {
   return (
     <div>
-      <h1>App</h1>
+      <h2>Color Generator</h2>
     </div>
   );
 }
