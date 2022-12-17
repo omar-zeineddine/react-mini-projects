@@ -9,7 +9,14 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("log");
+    // generate tint & shade
+    try {
+      let colors = new Values(color).all(10);
+      console.log(colors);
+    } catch (error) {
+      setErr(true);
+      console.log(error);
+    }
   };
 
   return (
@@ -20,8 +27,9 @@ function App() {
           <input
             type="text"
             value={color}
-            onChange={() => setColor(e.target.value)}
+            onChange={(e) => setColor(e.target.value)}
             placeholder="#f15025"
+            className={`${err ? "error" : null}`}
           />
           <button className="btn" type="submit">
             submit
