@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Values from "values.js";
 import SingleColor from "./SingleColor";
+import "./index.css";
 
 function App() {
   const [color, setColor] = useState("");
@@ -12,7 +13,7 @@ function App() {
     // generate tint & shade
     try {
       let colors = new Values(color).all(10);
-      console.log(colors);
+      setList(colors);
     } catch (error) {
       setErr(true);
       console.log(error);
@@ -37,8 +38,18 @@ function App() {
         </form>
       </section>
       <section className="colors">
-        <div className="container">
-          <h4>here be list</h4>
+        <div>
+          {list.map((color, idx) => {
+            console.log(color);
+            return (
+              <SingleColor
+                key={idx}
+                {...color}
+                index={idx}
+                hexColor={color?.hex}
+              />
+            );
+          })}
         </div>
       </section>
     </>
