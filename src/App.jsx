@@ -15,7 +15,21 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("log");
+    // check for empty value
+    if (!name) {
+      // display alert
+    } else if (name && isEditing) {
+      // handle Edit
+    } else {
+      // show alert
+      // create new item with id and property and add to list
+      const newItem = {
+        id: new Date().getTime().toString(),
+        title: name,
+      };
+      setList([...list, newItem]);
+      setName("");
+    }
   };
 
   return (
@@ -38,10 +52,12 @@ function App() {
           </button>
         </div>
       </form>
-      <div className="grocery-container">
-        <List />
-        <button className="clear-btn">clear items</button>
-      </div>
+      {list.length > 0 ? (
+        <div className="grocery-container">
+          <List items={list} />
+          <button className="clear-btn">clear items</button>
+        </div>
+      ) : null}
     </section>
   );
 }
