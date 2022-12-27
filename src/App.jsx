@@ -13,11 +13,16 @@ function App() {
     type: "",
   });
 
+  const showAlert = (show = false, type = "", msg = "") => {
+    setAlert({ show, type, msg });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // check for empty value
     if (!name) {
       // display alert
+      showAlert(true, "danger", "enter item name");
     } else if (name && isEditing) {
       // handle Edit
     } else {
@@ -35,7 +40,7 @@ function App() {
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
-        {alert.show ? <Alert /> : null}
+        {alert.show ? <Alert {...alert} removeAlert={showAlert} /> : null}
         <h3>Grocery Bud</h3>
         <div className="form-control">
           <input
