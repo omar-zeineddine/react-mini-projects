@@ -4,18 +4,37 @@ import logo from "../assets/react.svg";
 import { links, social } from "../data/data";
 
 const Navbar = () => {
+  const [showLinks, setShowLinks] = useState(false);
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
+
+  const toggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
+  useEffect(() => {
+    // check links height
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
+    // update container height accordingly
+    if (showLinks) {
+      linksContainerRef.current.style.height = `${linksHeight}px`;
+    } else {
+      linksContainerRef.current.style.height = `0px`;
+    }
+  }, [showLinks]);
+
   return (
     <nav>
       <div className="nav-center">
         <div className="nav-header">
-          <img src={logo} alt="logo" />
-          <button className="nav-toggle">
+          <img src={logo} alt="logo" className="logo" />
+          <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>
         </div>
 
-        <div className="links-container show-container">
-          <ul className="links">
+        <div className="links-container " ref={linksContainerRef}>
+          <ul className="links" ref={linksRef}>
             {links.map((link) => {
               const { id, url, text } = link;
               return (
