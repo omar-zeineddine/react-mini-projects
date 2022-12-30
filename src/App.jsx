@@ -1,8 +1,14 @@
+import Modal from "./Modal";
+import Sidebar from "./Sidebar";
+import Home from "./Home";
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <Home />
+      <Modal />
+      <Sidebar />
+    </>
   );
 }
 
