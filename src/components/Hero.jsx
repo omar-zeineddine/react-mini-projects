@@ -1,7 +1,10 @@
-import phoneImg from "../assets/images/phoneImg";
+import phone from "../assets/images/phone.svg";
+import { useGlobalContext } from "../context/context";
 
 const Hero = () => {
-  return <div>Hero</div>;
+  const data = useGlobalContext();
+  console.log(data);
+  return <h2>Hero</h2>;
 };
 
 export default Hero;
