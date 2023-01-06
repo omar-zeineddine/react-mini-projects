@@ -1,8 +1,13 @@
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Sidebar from "./components/Sidebar";
+import Submenu from "./components/Submenu";
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <h2>stripe submenus setup</h2>
+    </>
   );
 }
 
