@@ -1,7 +1,14 @@
+import { useGlobalContext } from "./context";
+import Navbar from "./Navbar";
+import CartContainer from "./CartContainer";
+
 function App() {
   return (
     <div>
-      <h1>App</h1>
+      <main>
+        <Navbar />
+        <CartContainer />
+      </main>
     </div>
   );
 }
