@@ -18,11 +18,18 @@ const AppProvider = ({ children }) => {
   // useReducer, looks for reducer function (from reducer file), and initial state
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const clearCart = () => {
+    dispatch({
+      type: "CLEAR_CART",
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
         // spread state values (loading, cart, total, amount)
         ...state,
+        clearCart,
       }}
     >
       {children}
