@@ -24,12 +24,17 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const remove = (id) => {
+    dispatch({ type: "REMOVE", payload: id });
+  };
+
   return (
     <AppContext.Provider
       value={{
         // spread state values (loading, cart, total, amount)
         ...state,
         clearCart,
+        remove,
       }}
     >
       {children}

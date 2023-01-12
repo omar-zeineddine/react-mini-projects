@@ -5,6 +5,13 @@ const reducer = (state, action) => {
       cart: [],
     };
   }
+  if (action.type === "REMOVE") {
+    return {
+      ...state,
+      // filter: return ids that don't match payload id
+      cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
+    };
+  }
   // state: current state before update
   return state;
 };
