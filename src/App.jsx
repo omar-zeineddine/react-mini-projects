@@ -54,6 +54,13 @@ function App() {
 
   const handleValue = (e) => {
     console.log(e.target);
+    // check if target doesn't have icon class
+    if (e.target.classList.contains("icon")) {
+      const newValue = e.target.dataset.ariaLabel;
+      setTitle(newValue);
+      // dynamically access object property value
+      setValue(person[newValue]);
+    }
   };
 
   useEffect(() => {
