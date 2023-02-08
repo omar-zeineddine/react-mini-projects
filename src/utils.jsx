@@ -1,8 +1,8 @@
 const paginate = (followers) => {
-  console.log("followers", followers);
+  //   console.log("followers", followers);
   const itemsPerPage = 9;
   // round up and add remaining items to last page
-  const page = Math.cbrt(followers.length / itemsPerPage);
+  const page = Math.ceil(followers.length / itemsPerPage);
 
   // new array of arrays with 9 items each
   const newFollowers = Array.from({ length: page }, (_, index) => {
