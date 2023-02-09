@@ -3,9 +3,17 @@ import Article from "./Article";
 
 function App() {
   return (
-    <div>
-      <h1>Dark Mode</h1>
-    </div>
+    <main>
+      <nav className="nav-center">
+        <h1>overreacted</h1>
+        <button className="btn">toggle</button>
+      </nav>
+      <section className="articles">
+        {data.map((article) => (
+          <Article key={article.id} {...article} />
+        ))}
+      </section>
+    </main>
   );
 }
 
